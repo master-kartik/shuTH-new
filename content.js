@@ -18,7 +18,9 @@ function replaceThumbnails() {
               if (matches) {
                   const videoId = matches[1];
                   const randomNumber = Math.floor(Math.random() * 3) + 1;
+                  img.src=" "
                   img.src = `https://img.youtube.com/vi/${videoId}/maxres${randomNumber}.jpg`;
+                  // img.src = `https://dearrow-thumb.ajay.app/api/v1/getThumbnail?videoID=${videoId}`;
               }
           });
       }
@@ -26,7 +28,9 @@ function replaceThumbnails() {
 }
 
 document.addEventListener('DOMContentLoaded', replaceThumbnails);
+window.addEventListener('scroll', replaceThumbnails);
 let observer = new MutationObserver(mutations => {
   replaceThumbnails();
 });
 observer.observe(document.body, { childList: true, subtree: true });
+
