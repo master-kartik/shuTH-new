@@ -16,9 +16,9 @@ function replaceThumbnails() {
               const src = img.src;
               const matches = src.match(/\/vi\/([a-zA-Z0-9_-]{11})\//);
               if (matches) {
+                  img.src=" "
                   const videoId = matches[1];
                   const randomNumber = Math.floor(Math.random() * 3) + 1;
-                  img.src=" "
                   img.src = `https://img.youtube.com/vi/${videoId}/maxres${randomNumber}.jpg`;
                   // img.src = `https://dearrow-thumb.ajay.app/api/v1/getThumbnail?videoID=${videoId}`;
               }
